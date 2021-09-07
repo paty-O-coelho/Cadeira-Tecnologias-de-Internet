@@ -1,0 +1,34 @@
+.container {
+  width: auto;
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+table {
+  border: 6.3px solid cyan;
+  width: 100%;
+  text-align: center;
+  border-radius: 9rem;
+}
+
+tr.teste {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  justify-content: space-between;
+}
+
+
+/* teste */
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
+
+/* 
+Mensagem de alerta pegue do stack overflow
+*/

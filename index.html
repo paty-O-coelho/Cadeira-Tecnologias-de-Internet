@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Simples</title>
+  <link rel="stylesheet" href="./style.css">
+  
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+  <div class="container">
+    
+    <table>
+      <tr>
+        <th>
+          <h3>Calculadora Simples</h3>
+          <br>
+          <label for="valor_1">Primeiro valor:</label>
+          <input type="number" name="valor_1" id="valor_1" />
+        </th>
+      </tr>
+
+      <tr>
+        <th>
+          <label for="valor_2">Segundo valor: </label>
+          <input type="number" name="valor_2" id="valor_2" />
+        </th>
+      </tr>
+
+      <tr class="teste">
+        
+        <td>
+          <button onclick="somar()" class="btn btn-info"  >+</button>
+        </td>
+        <td>
+          <button onclick="subtrair()" class="btn btn-dark">-</button>
+        </td>
+        <td>
+          <button onclick="multiplicar()" class="btn btn-info">*</button>
+        </td>
+        <td>
+          <button onclick="dividir()" class="btn btn-dark">/</button>
+        </td>
+      </tr>
+      <br />
+      <tr>
+
+        <td>Resultado: <span></span></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+
+    let valor_1 = document.querySelector("#valor_1")
+    let valor_2 = document.querySelector("#valor_2")
+    let resultado = document.querySelector("span")
+
+
+    function somar() {
+
+      if (valor_1.value  == "" || valor_2.value == "") {
+          swal({
+              icon: 'error',
+              title: 'Mensagem de erro...',
+              text: 'Certifique-se de que os campos estão preenchidos!',
+              footer: '<a href="">Why do I have this issue?</a>'
+        })
+
+      }
+      else {
+        resultado.innerHTML = parseInt(valor_1.value) + parseInt(valor_2.value)
+        console.log(resultado.value)
+      }
+
+    }
+
+    function subtrair() {
+      if (valor_1.value  == "" || valor_2.value == "") {
+          swal({
+              icon: 'error',
+              title: 'Mensagem de erro...',
+              text: 'Certifique-se de que os campos estão preenchidos!',
+              footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+
+      else {
+          resultado.innerHTML = parseInt(valor_1.value) - parseInt(valor_2.value)
+          console.log(resultado.value)
+      }
+
+    }
+
+    function multiplicar() {
+      if (valor_1.value  == "" || valor_2.value == "") {
+          swal({
+              icon: 'error',
+              title: 'Mensagem de erro...',
+              text: 'Certifique-se de que os campos estão preenchidos!',
+              footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+
+      else{          
+          resultado.innerHTML = parseInt(valor_1.value) * parseInt(valor_2.value)
+          console.log(resultado.value)
+      }
+
+    }
+
+    function dividir() {
+      if (valor_1.value  == "" || valor_2.value == "") {
+          swal({
+              icon: 'error',
+              title: 'Mensagem de erro...',
+              text: 'Certifique-se de que os campos estão preenchidos!',
+              footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+      else{
+          resultado.innerHTML = parseInt(valor_1.value) / parseInt(valor_2.value)
+          console.log(resultado.value)
+      }
+      
+    }
+
+
+  </script>
+</body>
+
+</html>
