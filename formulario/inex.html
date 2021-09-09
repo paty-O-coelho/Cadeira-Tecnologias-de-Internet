@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+    <div class="container">
+
+        <form>
+            <br>
+            <h3>Formulario Para Cadastro de Filmes e Series na Netflix</h3>
+            <br>
+            <div class="form-control">
+                <label for="filme">Nome do Filme / Serie</label>
+                <div class="col">
+                    <input type="text" class="form-control" value="" id="nome_filme">
+
+                </div>
+                <br>
+
+                <div class="form-control">
+                    <label for="tipo">Generos</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="drama" value="Drama">
+                    <label class="form-check-label" for="drama">Drama</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="comedia" value="Comedia">
+                    <label class="form-check-label" for="comedia">Comedia</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="terror" value="Terror">
+                    <label class="form-check-label" for="terror">Terror</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="romance" value="Romance">
+                    <label class="form-check-label" for="romance">Romance</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="documentario"
+                        value="Documentario">
+                    <label class="form-check-label" for="documentario">Documentario</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" name="genero" id="suspense" value="Suspense">
+                    <label class="form-check-label" for="suspense">Suspense</label>
+                </div>
+                <br>
+
+                <div class="form-control">
+                    <label for="premios">Premios Ganho</label>
+                    <option hidden>Hidden option</option>
+                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <option>Osca</option>
+                        <option>Troféu Broto</option>
+                        <option>Grande Prêmio do Cinema Brasileiro</option>
+                        <option>Emmy</option>
+                        <option>Sundance</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-control">
+                    <label for="Idioma">Idioma</label>
+                    <select class="form-control" id="idioma">
+                        <option  value="Português-BR">Português-BR</option>
+                        <option value="Inglês">Inglês</option>
+                        <option value="Espanhol">Espanhol</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Japonês">Japonês</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-control">
+                    <label class="tipo" for="conteudo">Tipo de Conteudo</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="conteudo_filme" id="conteudo_filme2"
+                        value="Filme" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Filme
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="conteudo_filme" id="conteudo_filme2"
+                        value="Seriado" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        Seriado
+                    </label>
+
+                </div>
+
+
+                <br>
+
+                <div class="form-control">
+                    <label for="textareasugestao">Sinopse</label>
+                    <textarea class="form-control" id="sinopse" rows="3"></textarea>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-info"
+                    onclick="visualizar_no_alert_informacoes_dos_filmes()">Enviar</button>
+        </form>
+    </div>
+
+
+    <script>
+        var nome_filme = document.getElementById("nome_filme")
+        var genero_filme = document.getElementsByName("genero")
+        var tipos_de_conteudo = document.getElementsByName("conteudo_filme")
+        var sinopse = document.getElementById("sinopse")
+        var idioma = document.getElementById("idioma")
+
+        function visualizar_no_alert_informacoes_dos_filmes() {
+            var imprimir_nome_filme = nome_filme.value.toString().length
+            var imprimir_genero_filme = []
+            var imprimir_tipos_de_conteudo
+            var imprimir_sinopse = sinopse.value.toString().split(" ").length
+            var imprimir_idioma = idioma.value.toString()
+
+
+            for (i = 0; i < genero_filme.length; i++) {
+                if (genero_filme[i].checked == true) {
+                    imprimir_genero_filme[i] = genero_filme[i].value
+                }
+            }
+
+            for (i = 0; i < tipos_de_conteudo.length; i++) {
+                if (tipos_de_conteudo[i].checked == true) {
+                    imprimir_tipos_de_conteudo = tipos_de_conteudo[i].value
+                }
+            }
+
+
+            alert("Quantidade de Letras do Nome do Filme: " +imprimir_nome_filme + "\n" +
+                  "Generos do Filme/Serie: " + imprimir_genero_filme + "\n" +
+                  "Idioma do Filme: " + imprimir_idioma + "\n" +
+                  "Tipo do Conteudo: " + imprimir_tipos_de_conteudo + "\n" +
+                  "Quantidade de Palavras na Sinopse: " + imprimir_sinopse + "\n")
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
