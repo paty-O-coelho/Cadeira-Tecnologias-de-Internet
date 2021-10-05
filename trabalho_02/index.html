@@ -12,13 +12,10 @@
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/records.css">
     <link rel="stylesheet" href="css/modal.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
 
     <script src="main.js" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
 
 
     <title>CRUD</title>
@@ -30,21 +27,17 @@
     </header>
     <main>
         <button type="button" class="button blue mobile" id="cadastrarCliente">Inserir Novo Pedido</button>
-        <table id="tableClient" class="table table-striped">
+        <table id="tableClient" class="records">
             <thead>
                 <tr>
-                    <th scope="col"> Nome </th>
-                    <th>E-mail</th>
-                    <th>Celular</th>
-                    <th>Cidade</th>
-
-                    <th>Nome do Cliente</th>
-                    <th>Numero do Pedido</th>
-                    <th>Data do Pedido</th>
-                    <th>Entregar</th>
-                    <th>Pagamento</th>
-                    <th>Ação</th>
-
+                    <th>Número do pedido</th>
+                    <th>Nome do cliente</th>
+                    <th>Data do pedido</th>
+                    <th>Bebidas</th>
+                    <th>Salgados</th>
+                    <th>Doces</th>
+                    <th>Tipo de retirada</th>
+                    <th>Forma de pagamento</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,28 +50,90 @@
 
 
                     <h2>Novo Pedido</h2>
-                    <span class="modal-close" id="modalClose">&#00FA9A;</span>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
                 <form id="form" class="modal-form">
-                    <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente"
-                        required>
+                    <!-- 
                     <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente" required>
                     <input type="text" id="celular" class="modal-field" placeholder="Celular do Cliente" required>
-                    <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente" required>
+                    <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente" required> -->
 
 
-                    <input type="text" id="cliente" class="modal-field" placeholder="Nome do Cliente" required>
+
                     <input type="text" id="pedido" class="modal-field" placeholder="Numero do Pedido" required>
-                    <input type="text" id="data" class="modal-field" placeholder="Data do Pedido" required>
-                    <input type="text" id="entrega" class="modal-field" placeholder="Tipo de Entrega" required>
-                    <input type="text" id="pagamento" class="modal-field" placeholder="Forma de Pagamento" required>
-                    
+                    <input type="text" id="cliente" data-index="new" class="modal-field" placeholder="Nome do Cliente"
+                        required>
+                    <input type="date" id="data" class="modal-field" placeholder="Data do Pedido" required>
+                    <div>
+                        <label name="bebidas" id="">Bebidas:</label>
+                        <input type="checkbox" name="bebidas" id="cafe" value="Café" />
+                        <label for="cafe">Café</label>
+                        <input type="checkbox" name="bebidas" id="agua" value="Água" />
+                        <label for="agua">Água</label>
+                        <input type="checkbox" name="bebidas" id="refrigerante" value="Refrigerante" />
+                        <label for="refrigerante">Refrigerante</label>
+                        <input type="checkbox" name="bebidas" id="suco" value="Suco" />
+                        <label for="suco">Suco</label>
+                    </div>
+
+                    <div>
+                        <label name="salgados" id="">Salgados:</label>
+                        <input type="checkbox" name="salgados" id="coxinha" value="Coxinha" />
+                        <label for="coxinha">Coxinha</label>
+                        <input type="checkbox" name="salgados" id="pastel" value="Pastel" />
+                        <label for="pastel">Pastel</label>
+                        <input type="checkbox" name="salgados" id="bolinho" value="Bolinho de bacalhau" />
+                        <label for="bolinho">Bolinho de bacalhau</label>
+                        <input type="checkbox" name="salgados" id="kibe" value="Kibe" />
+                        <label for="kibe">Kibe</label>
+                        <input type="checkbox" name="salgados" id="pizza" value="Mini pizza" />
+                        <label for="pizza">Mini pizza</label>
+                    </div>
+
+                    <div>
+                        <label name="doces" id="">Doces:</label>
+                        <input type="checkbox" name="doces" id="bolo" value="Bolo" />
+                        <label for="bolo">Bolo</label>
+                        <input type="checkbox" name="doces" id="brigadeiro" value="Brigadeiro" />
+                        <label for="brigadeiro">Brigadeiro</label>
+                        <input type="checkbox" name="doces" id="cupcake" value="Cupcake" />
+                        <label for="cupcake">Cupcake</label>
+                        <input type="checkbox" name="doces" id="palha" value="Palha italiana" />
+                        <label for="palha">Palha italiana</label>
+                        <input type="checkbox" name="doces" id="cookie" value="Cookie" />
+                        <label for="cookie">Cookie</label>
+                    </div>
+
+                    <div>
+                        <label>Tipo de retirada do pedido:</label>
+                        <input type="radio" name="retirada" id="loja" value="Consumir na loja" />
+                        <label for="loja">Consumir na loja</label>
+                        <input type="radio" name="retirada" id="entrega" value="Entrega" />
+                        <label for="entrega">Entrega</label>
+                        <input type="radio" name="retirada" id="retirar" value="Retirar na loja" />
+                        <label for="retirar">Retirar na loja</label>
+                    </div>
+
+                    <div>
+                        <label>Forma de pagamento:</label>
+                        <input type="radio" name="pagamento" id="dinheiro" value="Dinheiro" />
+                        <label for="dinheiro">Dinheiro</label>
+                        <input type="radio" name="pagamento" id="credito" value="Cartão de Crédito" />
+                        <label for="credito">Cartão de Crédito</label>
+                        <input type="radio" name="pagamento" id="debito" value="Cartão de Débito" />
+                        <label for="debito">Cartão de Débito</label>
+                        <input type="radio" name="pagamento" id="vale" value="Vale alimentação/refeição" />
+                        <label for="vale">Vale alimentação/refeição</label>
+                    </div>
+                    <!-- <input type="text" id="entrega" class="modal-field" placeholder="Tipo de Entrega" required>
+                    <input type="text" id="pagamento" class="modal-field" placeholder="Forma de Pagamento" required> -->
+
                 </form>
 
 
                 <footer class="modal-footer">
                     <button id="salvar" class="button green">Salvar</button>
-                    <button id="cancelar" class="button blue">Cancelar</button>
+                    <!-- <button id="cancelar" class="button blue">Cancelar</button> -->
                 </footer>
             </div>
         </div>

@@ -2,27 +2,27 @@
     border-style: none;
     height: 40px;
     padding: 6px 12px;
-    background-color:#98FB98; 
-    color: #000;
+    background-color: black;
+    color: white;
     font-size: 1rem;
     cursor: pointer;
     transition: box-shadow .6s ease;
 }
 
 .button.blue{
-    background-color: #98FB98;
+    background-color: #1FB6FF;
 }
 
 button.green{
-    background-color:#00BFFF;
+    background-color: #00FA9A;
 }
 
 button.red{
-    background-color: #F08080;
+    background-color: #FF1493;
 }
 
 .button:hover{
-    box-shadow: inset 200px 0 0 white;
+    box-shadow: inset 200px 0 0 #00000055;
 }
 
 @media(max-width:480px){
@@ -38,7 +38,7 @@ button.red{
     }
     .button.mobile::before{
         content: "+";
-        color:white;
+        color:black;
         font-size:2rem;
         width:100%;
         height:100%;
